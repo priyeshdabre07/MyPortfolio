@@ -15,18 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'My Portfolio',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
-        accentColor: Colors.amberAccent,
-        appBarTheme: AppBarTheme(
-            centerTitle: true,
-            textTheme:
-                GoogleFonts.gupterTextTheme(Theme.of(context).textTheme)),
-        textTheme: GoogleFonts.gupterTextTheme(Theme.of(context).textTheme),
-        pageTransitionsTheme: PageTransitionsTheme(builders: {
-          TargetPlatform.windows: CupertinoPageTransitionsBuilder()
-        }),
+        primaryColor: Colors.white,
+        textTheme: GoogleFonts.orientaTextTheme(Theme.of(context).textTheme),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
