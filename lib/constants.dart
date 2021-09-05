@@ -1,1 +1,1 @@
-const String educationScreenRoute = 'education';
+const String cakeDetailsRoute = 'cakeDetails';
