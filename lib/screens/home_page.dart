@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 // import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cakes_for_you/screens/components/custom_widgets.dart';
 import 'package:cakes_for_you/screens/components/drawer.dart';
 import 'package:cakes_for_you/utility/global_methods.dart';
 import 'package:flutter/cupertino.dart';
@@ -30,6 +31,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            backgroundColor: Colors.white,
+            onPressed: () {},
+            child: Icon(
+              Icons.phone_outlined,
+              color: Theme.of(context).accentColor,
+            ),
+          ),
+          10.0.heightBox,
+          FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.white,
+            child: Icon(
+              Icons.sms,
+              color: Theme.of(context).accentColor,
+            ),
+          ),
+        ],
+      ),
       drawer: screenWidth(context) > 400 ? null : const CustomDrawer(),
       appBar: AppBar(
         elevation: 0,
@@ -141,6 +164,38 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (context, index) => const CakeCard(),
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth(context) * 0.15),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'View More',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle1!
+                                      .copyWith(
+                                          // fontSize: 26,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Theme.of(context).primaryColor,
+                                  size: 16,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      10.0.heightBox
                     ],
                   ),
                 ),
@@ -168,8 +223,23 @@ class CakeCard extends StatefulWidget {
   _CakeCardState createState() => _CakeCardState();
 }
 
-class _CakeCardState extends State<CakeCard> {
+class _CakeCardState extends State<CakeCard> with TickerProviderStateMixin {
   double elevation = 1.0;
+
+  late final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+      lowerBound: 0.7);
+  late final Animation<double> _animation = CurvedAnimation(
+    parent: _controller,
+    curve: Curves.fastOutSlowIn,
+  );
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -182,16 +252,19 @@ class _CakeCardState extends State<CakeCard> {
         onEnter: (event) {
           setState(() {
             elevation = 10;
+            _controller.forward();
           });
         },
         onExit: (event) {
           setState(() {
             elevation = 1;
+            _controller.reverse();
           });
         },
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
+          padding: const EdgeInsets.all(6.0),
+          child: ScaleTransition(
+            scale: _animation,
             child: Card(
               elevation: elevation,
               clipBehavior: Clip.hardEdge,
