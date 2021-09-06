@@ -1,6 +1,6 @@
 import 'package:auto_route/annotations.dart';
-import 'package:my_portfolio_app/screens/cake_details_page.dart';
-import 'package:my_portfolio_app/screens/home_page.dart';
+import 'package:cakes_for_you/screens/cake_details_page.dart';
+import 'package:cakes_for_you/screens/home_page.dart';
 
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page|Screen,Route',
