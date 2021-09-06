@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CakeDetails extends StatelessWidget {
+class CakeDetailsPage extends StatelessWidget {
   final String name;
 
-  const CakeDetails({Key? key, required this.name}) : super(key: key);
+  const CakeDetailsPage({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +14,7 @@ class CakeDetails extends StatelessWidget {
       // ),
       body: CustomScrollView(slivers: [
         SliverAppBar(
+          leading: const SizedBox(),
           expandedHeight: 250,
           flexibleSpace: FlexibleSpaceBar(
             background: Hero(

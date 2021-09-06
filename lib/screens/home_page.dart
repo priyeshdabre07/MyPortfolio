@@ -1,18 +1,20 @@
 import 'dart:ui';
 
-import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio_app/constants.dart';
+import 'package:my_portfolio_app/utility/constants.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:my_portfolio_app/utility/router.gr.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
@@ -117,7 +119,7 @@ class _CakeCardState extends State<CakeCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(cakeDetailsRoute, arguments: '');
+        context.pushRoute(CakeDetails(name0: 'name0'));
       },
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
