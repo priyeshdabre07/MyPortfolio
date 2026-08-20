@@ -1,6 +1,5 @@
-import 'package:cakes_for_you/screens/components/custom_widgets.dart';
+import 'package:my_portfolio/screens/components/custom_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 ///extensions on String
 extension StringExtensions on String {
@@ -60,39 +59,34 @@ extension StringExtensions on String {
       formattedCurrency += i;
     }
 
-    formattedCurrency += '.' + split('.').last;
+    formattedCurrency += '.${split('.').last}';
     // print(formattedCurrency);
     return formattedCurrency;
   }
 
   Widget get background => Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            alignment: Alignment.topCenter,
-            image: AssetImage(this),
-            fit: BoxFit.fitWidth,
-          ),
-        ),
-      );
+    decoration: BoxDecoration(
+      color: Colors.white,
+      image: DecorationImage(
+        alignment: Alignment.topCenter,
+        image: AssetImage(this),
+        fit: BoxFit.fitWidth,
+      ),
+    ),
+  );
 
-  ScaffoldFeatureController showSnackBar(context) =>
+  ScaffoldFeatureController showSnackBar(BuildContext context) =>
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           margin: const EdgeInsets.all(60),
           backgroundColor: Colors.white,
           behavior: SnackBarBehavior.floating,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomText(
-                this,
-                size: 16,
-                bold: FontWeight.w500,
-              ),
-            ],
+            children: [CustomText(this, size: 16, bold: FontWeight.w500)],
           ),
         ),
       );
@@ -116,9 +110,7 @@ extension DoubleExtensions on double {
 }
 
 extension WidgetExtensions on Widget {
-  Widget get flexible => Flexible(
-        child: this,
-      );
+  Widget get flexible => Flexible(child: this);
 }
 
 extension DateTimeExtensions on DateTime {
@@ -126,19 +118,15 @@ extension DateTimeExtensions on DateTime {
     if (DateTime.now().difference(this).inSeconds > 60) {
       if (DateTime.now().difference(this).inMinutes > 60) {
         if (DateTime.now().difference(this).inHours > 24) {
-          return DateTime.now().difference(this).inDays.toString() +
-              ' days ago';
+          return '${DateTime.now().difference(this).inDays} days ago';
         } else {
-          return DateTime.now().difference(this).inHours.toString() +
-              ' hours ago';
+          return '${DateTime.now().difference(this).inHours} hours ago';
         }
       } else {
-        return DateTime.now().difference(this).inMinutes.toString() +
-            ' minutes ago';
+        return '${DateTime.now().difference(this).inMinutes} minutes ago';
       }
     } else {
-      return DateTime.now().difference(this).inSeconds.toString() +
-          ' seconds ago';
+      return '${DateTime.now().difference(this).inSeconds} seconds ago';
     }
   }
 

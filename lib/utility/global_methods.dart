@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-double screenWidth(context) {
-  return MediaQuery.of(context).size.width;
+double screenWidth(BuildContext context) {
+  return MediaQuery.widthOf(context);
 }
 
-double screenHeight(context) {
-  return MediaQuery.of(context).size.height;
+double screenHeight(BuildContext context) {
+  return MediaQuery.heightOf(context);
 }
 
-double getWHRatio(context) {
-  return MediaQuery.of(context).size.aspectRatio;
+double getWHRatio(BuildContext context) {
+  return MediaQuery.sizeOf(context).aspectRatio;
 }

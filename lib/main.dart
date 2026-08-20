@@ -1,8 +1,9 @@
+import 'package:my_portfolio/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:cakes_for_you/';
-// import 'package:cakes_for_you/screens/home_page.dart';
-import 'package:cakes_for_you/utility/router.gr.dart';
+
+// import 'package:my_portfolio/';
+// import 'package:my_portfolio/screens/home_page.dart';
 
 // import 'utility/constants.dart';
 
@@ -11,24 +12,24 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
-  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Cakes For You',
+      title: 'Priyesh Dabre',
+      home: const HomePage(),
       theme: ThemeData(
-          scaffoldBackgroundColor: Colors.grey[200],
-          primaryColor: Colors.white,
-          accentColor: Colors.pink,
-          textTheme: GoogleFonts.radleyTextTheme(Theme.of(context).textTheme),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textButtonTheme: TextButtonThemeData(
-              style: TextButton.styleFrom(primary: Colors.pink))),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      routerDelegate: _appRouter.delegate(),
+        scaffoldBackgroundColor: Colors.grey[200],
+        primaryColor: Colors.white,
+        colorScheme: const ColorScheme.light(secondary: Colors.green),
+        textTheme: GoogleFonts.radleyTextTheme(Theme.of(context).textTheme),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+
+        // textButtonTheme: TextButtonThemeData(
+        //     style: TextButton.styleFrom(primary: Colors.pink)),
+      ),
     );
   }
 }

@@ -14,6 +14,7 @@ class CustomText extends StatefulWidget {
 
   const CustomText(
     this.data, {
+    super.key,
     this.size,
     this.color,
     this.bold,
@@ -26,7 +27,7 @@ class CustomText extends StatefulWidget {
   });
 
   @override
-  _CustomTextState createState() => _CustomTextState();
+  State<CustomText> createState() => _CustomTextState();
 }
 
 class _CustomTextState extends State<CustomText> {
@@ -37,16 +38,17 @@ class _CustomTextState extends State<CustomText> {
       textAlign: widget.centerAlign == null ? TextAlign.left : TextAlign.center,
       overflow: widget.overflow,
       style: TextStyle(
-          height: widget.height,
-          fontSize: widget.size,
-          color: widget.color,
-          fontWeight: widget.bold == null ? FontWeight.normal : widget.bold,
-          fontFamily: widget.fontFamily ?? null,
-          fontStyle:
-              widget.italic == null ? FontStyle.normal : FontStyle.italic,
-          decoration: widget.underline == null
-              ? TextDecoration.none
-              : TextDecoration.underline),
+        height: widget.height,
+        fontSize: widget.size,
+        color: widget.color,
+        fontWeight: widget.bold ?? FontWeight.normal,
+        fontFamily: widget.fontFamily,
+        fontStyle: widget.italic == null ? FontStyle.normal : FontStyle.italic,
+        decoration:
+            widget.underline == null
+                ? TextDecoration.none
+                : TextDecoration.underline,
+      ),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({Key? key}) : super(key: key);
+  const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,22 +11,13 @@ class CustomDrawer extends StatelessWidget {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-                // color: Colors.blue,
-                ),
+              // color: Colors.blue,
+            ),
             child: Text('Cakes For You'),
           ),
-          ListTile(
-            title: const Text('Work'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: const Text('About Me'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: const Text('Contact'),
-            onTap: () {},
-          ),
+          ListTile(title: const Text('Work'), onTap: () {}),
+          ListTile(title: const Text('About Me'), onTap: () {}),
+          ListTile(title: const Text('Contact'), onTap: () {}),
         ],
       ),
     );
