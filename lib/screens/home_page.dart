@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/projects.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const _ink = Color(0xFF101316);
 const _paper = Color(0xFFF5F3EE);
@@ -517,6 +518,14 @@ class _ExperienceRow extends StatelessWidget {
 class _Contact extends StatelessWidget {
   const _Contact({super.key});
 
+  static final _linkedinUrl = Uri.parse(
+    'https://linkedin.com/in/priyesh-dabre-1943ba122',
+  );
+
+  Future<void> _openLinkedIn() async {
+    await launchUrl(_linkedinUrl, mode: LaunchMode.externalApplication);
+  }
+
   @override
   Widget build(BuildContext context) => Container(
     color: _lime,
@@ -547,12 +556,31 @@ class _Contact extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              '+91 86002 15178  ·  linkedin.com/in/priyesh-dabre-1943ba122',
-              style: GoogleFonts.spaceGrotesk(
-                color: _ink.withValues(alpha: .7),
-                fontSize: 13,
-              ),
+            Row(
+              children: [
+                Text(
+                  '+91 86002 15178  ·  ',
+                  style: GoogleFonts.spaceGrotesk(
+                    color: _ink.withValues(alpha: .7),
+                    fontSize: 13,
+                  ),
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: _openLinkedIn,
+                    child: Text(
+                      'linkedin.com/in/priyesh-dabre-1943ba122',
+                      style: GoogleFonts.spaceGrotesk(
+                        color: _ink,
+                        fontSize: 13,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 52),
             Text(
