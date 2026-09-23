@@ -1,30 +1,60 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:my_portfolio/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+  testWidgets('Portfolio loads cleanly on desktop viewport without errors', (
+    WidgetTester tester,
+  ) async {
+    tester.view.physicalSize = const Size(1440, 1080);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify brand name & app icon
+    expect(find.byType(Image), findsWidgets);
+    expect(find.text('Priyesh Dabre'), findsWidgets);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify core sections exist
+    expect(find.text('CORE COMPETENCIES'), findsOneWidget);
+    expect(find.text('FEATURED WORK'), findsOneWidget);
+    expect(find.text('CAREER TIMELINE'), findsOneWidget);
+    expect(find.text('GET IN TOUCH'), findsOneWidget);
+
+    // Verify projects are present
+    expect(find.text('myTime'), findsOneWidget);
+    expect(find.text('TrueCoverage'), findsOneWidget);
+  });
+
+  testWidgets('Portfolio renders cleanly on mobile viewport without overflow', (
+    WidgetTester tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(const MyApp());
+    await tester.pumpAndSettle();
+
+    // Verify brand app icon
+    expect(find.byType(Image), findsWidgets);
+
+    // Verify hero text
+    expect(find.text('Priyesh Dabre'), findsWidgets);
+
+    // Scroll through the entire page to verify no RenderFlex overflow occurs
+    final scrollFinder = find.byType(SingleChildScrollView);
+    expect(scrollFinder, findsOneWidget);
+
+    await tester.drag(scrollFinder, const Offset(0, -500));
+    await tester.pumpAndSettle();
+
+    await tester.drag(scrollFinder, const Offset(0, -800));
+    await tester.pumpAndSettle();
+
+    await tester.drag(scrollFinder, const Offset(0, -1000));
+    await tester.pumpAndSettle();
   });
 }
