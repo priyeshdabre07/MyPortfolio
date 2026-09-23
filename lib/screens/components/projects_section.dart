@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/projects.dart';
 import 'package:my_portfolio/screens/components/animated_hover_card.dart';
 import 'package:my_portfolio/theme/app_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectsSection extends StatelessWidget {
   const ProjectsSection({super.key});
@@ -54,7 +55,7 @@ class ProjectsSection extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                'Commercial products built with high maintainability, secure storage, and smooth framerates.',
+                'Commercial products and AI-powered web experiences built with high maintainability, secure storage, and smooth framerates.',
                 style: GoogleFonts.plusJakartaSans(
                   color: AppTheme.textSecondary,
                   fontSize: 16,
@@ -82,17 +83,23 @@ class _ProjectCard extends StatelessWidget {
 
   const _ProjectCard({required this.project});
 
+  Future<void> _openLink(String url) async {
+    final uri = Uri.parse(url);
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedHoverCard(
       padding: const EdgeInsets.all(32),
       borderRadius: 18,
+      onTap: project.link != null ? () => _openLink(project.link!) : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
           final isCompact = constraints.maxWidth < 750;
 
           final header = Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Number Badge
               Container(
@@ -131,6 +138,48 @@ class _ProjectCard extends StatelessWidget {
                 ),
               ),
               const Spacer(),
+              if (project.link != null) ...[
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () => _openLink(project.link!),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppTheme.accentMint.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: AppTheme.accentMint.withValues(alpha: 0.4),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'LIVE DEMO',
+                            style: GoogleFonts.spaceGrotesk(
+                              color: AppTheme.accentMint,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 0.8,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          const Icon(
+                            Icons.arrow_outward_rounded,
+                            size: 13,
+                            color: AppTheme.accentMint,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+              ],
               Text(
                 project.dates,
                 style: GoogleFonts.spaceGrotesk(
@@ -143,14 +192,29 @@ class _ProjectCard extends StatelessWidget {
             ],
           );
 
-          final title = Text(
-            project.name,
-            style: GoogleFonts.spaceGrotesk(
-              color: AppTheme.textPrimary,
-              fontSize: isCompact ? 28 : 34,
-              fontWeight: FontWeight.w800,
-              letterSpacing: -0.5,
-            ),
+          final title = Row(
+            children: [
+              Expanded(
+                child: Text(
+                  project.name,
+                  style: GoogleFonts.spaceGrotesk(
+                    color: AppTheme.textPrimary,
+                    fontSize: isCompact ? 28 : 34,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+              ),
+              if (project.link != null)
+                const Padding(
+                  padding: EdgeInsets.only(left: 8),
+                  child: Icon(
+                    Icons.arrow_outward_rounded,
+                    color: AppTheme.accentMint,
+                    size: 24,
+                  ),
+                ),
+            ],
           );
 
           final description = Text(
@@ -267,6 +331,35 @@ class _ProjectCard extends StatelessWidget {
               const Divider(color: AppTheme.borderSubtle, height: 1),
               const SizedBox(height: 16),
               techChips,
+              if (project.link != null) ...[
+                const SizedBox(height: 16),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () => _openLink(project.link!),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.link_rounded,
+                          size: 16,
+                          color: AppTheme.accentMint,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          project.link!,
+                          style: GoogleFonts.spaceGrotesk(
+                            color: AppTheme.accentMint,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ],
           );
         },

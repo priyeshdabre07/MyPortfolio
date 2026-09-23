@@ -24,6 +24,7 @@ void main() {
     expect(find.text('GET IN TOUCH'), findsOneWidget);
 
     // Verify projects are present
+    expect(find.text("L'Atelier Sucré"), findsOneWidget);
     expect(find.text('myTime'), findsOneWidget);
     expect(find.text('TrueCoverage'), findsOneWidget);
   });
