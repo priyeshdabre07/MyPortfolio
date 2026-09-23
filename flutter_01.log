@@ -1,0 +1,84 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter pub get --no-example
+
+## exception
+
+PathExistsException: PathExistsException: Cannot create link, path = '/Users/priyeshdabre/Work/projects/MyPortfolio/windows/flutter/ephemeral/.plugin_symlinks/jni' (OS Error: File exists, errno = 17)
+
+```
+#0      _Link.throwIfError (dart:io/link.dart:358:7)
+#1      _Link.createSync (dart:io/link.dart:276:5)
+#2      ForwardingLink.createSync (package:file/src/forwarding/forwarding_link.dart:20:16)
+#3      ErrorHandlingLink.createSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:893:22)
+#4      _runSync (package:flutter_tools/src/base/error_handling_io.dart:1118:16)
+#5      ErrorHandlingLink.createSync (package:flutter_tools/src/base/error_handling_io.dart:892:5)
+#6      _createPlatformPluginSymlinks (package:flutter_tools/src/flutter_plugins.dart:1276:12)
+#7      createPluginSymlinks (package:flutter_tools/src/flutter_plugins.dart:1193:5)
+#8      refreshPluginsList (package:flutter_tools/src/flutter_plugins.dart:1333:5)
+<asynchronous suspension>
+#9      FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:445:5)
+<asynchronous suspension>
+#10     PackagesGetCommand.runCommand.<anonymous closure> (package:flutter_tools/src/commands/packages.dart:409:11)
+<asynchronous suspension>
+#11     Pool.forEach.run (package:pool/pool.dart:183:19)
+<asynchronous suspension>
+#12     Pool.withResource (package:pool/pool.dart:127:14)
+<asynchronous suspension>
+#13     Future.wait.<anonymous closure> (dart:async/future.dart:567:21)
+<asynchronous suspension>
+#14     Pool.forEach.onListen.<anonymous closure> (package:pool/pool.dart:203:23)
+<asynchronous suspension>
+#15     _StreamController.close (dart:async/stream_controller.dart:640:3)
+<asynchronous suspension>
+#16     _nullDataHandler (dart:async/stream_impl.dart:549:1)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.47.1, on macOS 27.0 26A428 darwin-arm64, locale en-US) [206ms]
+    • Flutter version 3.47.1 on channel stable at /Users/priyeshdabre/Work/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 6655482ec0 (5 weeks ago), 2026-08-19 10:07:23 -0700
+    • Engine revision 5d53178869
+    • Dart version 3.13.1
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+
+[!] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [4.6s]
+    • Android SDK at /Users/priyeshdabre/Library/Android/sdk
+    • Emulator version 37.1.11.0 (build_id 15917651) (CL:N/A)
+    ✗ cmdline-tools component is missing.
+      Try installing or updating Android Studio.
+      Alternatively, download the tools from https://developer.android.com/studio#command-line-tools-only and make sure to set the ANDROID_HOME environment variable.
+      See https://developer.android.com/studio/command-line for more details.
+    ✗ Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/macos-android-setup for more details.
+
+[!] Xcode - develop for iOS and macOS (Xcode 27.0) [1,581ms]
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Build 27A266a
+    ! CocoaPods not installed.
+        CocoaPods is a package manager for iOS or macOS platform code.
+        Without CocoaPods, plugins will not work on iOS or macOS.
+        For more info, see https://flutter.dev/to/platform-plugins
+      For installation instructions, see https://guides.cocoapods.org/using/getting-started.html#installation
+
+[✓] Chrome - develop for the web [4ms]
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Connected device (2 available) [6.1s]
+    • macOS (desktop) • macos  • darwin-arm64   • macOS 27.0 26A428 darwin-arm64
+    • Chrome (web)    • chrome • web-javascript • Google Chrome 153.0.8010.50
+
+[✓] Network resources [1,196ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.
+```
