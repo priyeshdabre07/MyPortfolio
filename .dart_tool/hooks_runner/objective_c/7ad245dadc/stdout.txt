@@ -1,0 +1,53 @@
+Running `(cd /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/; TMPDIR=/var/folders/zt/6mqvszjs23n0m0rmg0n7t0wr0000gn/T/ PATH=/Users/priyeshdabre/Work/flutter/bin:/Users/priyeshdabre/.gemini/antigravity-ide/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/priyeshdabre/Work/flutter/bin HOME=/Users/priyeshdabre /Users/priyeshdabre/Work/flutter/bin/cache/dart-sdk/bin/dart --packages=/Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/package_config.json /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/objective_c/7ad245dadc/hook.dill --config=/Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/objective_c/7ad245dadc/input.json )`.
+INFO: 2026-09-23 11:15:02.493458: Using compiler /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang from BuildInput.cCompiler.cc.
+
+INFO: 2026-09-23 11:15:02.496585: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/include/dart_api_dl.c -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/include/dart_api_dl.c.o
+
+INFO: 2026-09-23 11:15:02.497341: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/objective_c.c -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.c.o
+
+INFO: 2026-09-23 11:15:02.497471: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/input_stream_adapter.m -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/input_stream_adapter.m.o
+
+INFO: 2026-09-23 11:15:02.497557: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/objective_c.m -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.m.o
+
+INFO: 2026-09-23 11:15:02.497640: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/observer.m -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/observer.m.o
+
+INFO: 2026-09-23 11:15:02.497719: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/ns_number.m -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/ns_number.m.o
+
+INFO: 2026-09-23 11:15:02.497798: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/priyeshdabre/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/protocol.m -fpic -gline-tables-only -I src -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/protocol.m.o
+
+obj/src/objective_c_bindings_generated.m.o
+
+INFO: 2026-09-23 11:15:02.663475: 
+INFO: 2026-09-23 11:15:02.663547: 
+INFO: 2026-09-23 11:15:02.663569: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.c.o
+
+INFO: 2026-09-23 11:15:02.664029: 
+INFO: 2026-09-23 11:15:02.664042: 
+INFO: 2026-09-23 11:15:02.664051: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/include/dart_api_dl.c.o
+
+INFO: 2026-09-23 11:15:02.665306: 
+INFO: 2026-09-23 11:15:02.665353: 
+INFO: 2026-09-23 11:15:02.665373: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/observer.m.o
+
+INFO: 2026-09-23 11:15:02.666970: 
+INFO: 2026-09-23 11:15:02.667016: 
+INFO: 2026-09-23 11:15:02.667037: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/protocol.m.o
+
+INFO: 2026-09-23 11:15:02.893571: 
+INFO: 2026-09-23 11:15:02.893610: 
+INFO: 2026-09-23 11:15:02.893619: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/ns_number.m.o
+
+INFO: 2026-09-23 11:15:02.904396: 
+INFO: 2026-09-23 11:15:02.904411: 
+INFO: 2026-09-23 11:15:02.904419: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/input_stream_adapter.m.o
+
+INFO: 2026-09-23 11:15:02.929720: 
+INFO: 2026-09-23 11:15:02.929754: 
+INFO: 2026-09-23 11:15:02.929763: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c_bindings_generated.m.o
+
+INFO: 2026-09-23 11:15:02.930014: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -shared -Wl,-encryptable -undefined dynamic_lookup -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-darwin -mmacos-version-min=13 /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/include/dart_api_dl.c.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.c.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/input_stream_adapter.m.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.m.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/observer.m.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/ns_number.m.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/protocol.m.o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c_bindings_generated.m.o -o /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/objective_c.dylib
+
+INFO: 2026-09-23 11:15:03.020850: 
+INFO: 2026-09-23 11:15:03.020897: 
+INFO: 2026-09-23 11:15:03.020907: Generated /Users/priyeshdabre/Work/projects/MyPortfolio/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/objective_c.dylib
+
